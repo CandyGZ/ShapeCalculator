@@ -61,3 +61,66 @@ class Rectangle:
 
 
 # Additionally, if an instance of a Rectangle is represented as a string, it should look like: Rectangle(width=5, height=10)
+
+class Square(Rectangle):
+    # The Square class should be a subclass of Rectangle. When a Square object is created, a single side length is passed in.
+    # The __init__ method should store the side length in both the width and height attributes from the Rectangle class.
+    # The Square class should be able to access the Rectangle class methods but should also contain a set_side method.
+    # If an instance of a Square is represented as a string, it should look like: Square(side=9)
+    # Additionally, the set_width and set_height methods on the Square class should set both the width and height.
+    def __init__(self, side) -> None:
+        # Rectangle.width = side    <--- Esta forma funciona pero no es muy eficiente, lo mejor es usar el método super para acceder a atributos del padre
+        # Rectangle.height = side       si la clase Rectangle  agregara nuevos argumentos tendríamos que reescribir el código en la clase Square
+        super().__init__(
+            side, side
+        )  # llmáma al metodo init de la clase Rectangle y establece side en lugar de width y side en lugar de height
+
+    def set_width(self, side):
+        # Rectangle.width = side
+        # Rectangle.height = side
+        super().__init__(side, side)
+
+    def set_height(self, side):
+        super().__init__(side, side)
+
+    def set_side(self, side):
+        super().__init__(side, side)
+
+    def __repr__(self):
+        return f"Square(side={self.width})"
+
+
+# rect = Rectangle(4, 8)
+# # rect.get_area()
+# # rect.get_perimeter()
+# # rect.get_diagonal()
+# rect.get_picture()
+# sq = Square(2)
+# # sq.get_picture()
+# # print(rect)
+# # print(sq)
+# # # rect.set_width(8)
+# # print(rect)
+# rect2 = Rectangle(3, 7)
+# # rect.get_amount_inside(sq)
+# rect.get_amount_inside(rect2)
+
+# Usage example:
+rect = Rectangle(10, 5)
+print(rect.get_area())
+rect.set_height(3)
+print(rect.get_perimeter())
+print(rect)
+print(rect.get_picture())
+
+sq = Square(9)
+print(sq.get_area())
+sq.set_side(4)
+print(sq.get_diagonal())
+print(sq)
+print(sq.get_picture())
+
+rect.set_height(8)
+rect.set_width(16)
+print(rect.get_amount_inside(sq))
+
