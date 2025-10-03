@@ -62,7 +62,6 @@ class Rectangle:
 
 # Additionally, if an instance of a Rectangle is represented as a string, it should look like: Rectangle(width=5, height=10)
 
-
 class Square(Rectangle):
     # The Square class should be a subclass of Rectangle. When a Square object is created, a single side length is passed in.
     # The __init__ method should store the side length in both the width and height attributes from the Rectangle class.
@@ -124,3 +123,4 @@ print(sq.get_picture())
 rect.set_height(8)
 rect.set_width(16)
 print(rect.get_amount_inside(sq))
+
